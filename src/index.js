@@ -143,3 +143,47 @@ endDomEvent(cancelGameDom) // cuando se pulsa el botón
 
 rankingDomEvent(showRankingDom) // al pulsar el botón
 
+//----------------------------
+function correctAnswer(){
+  if(i < 26) {
+    distoggleLetter(i);
+    confirmCorrect(i);
+    i++;
+    continuePlaying(i);
+  }
+}
+
+function failAnswer(){
+  if(i < 26) {
+    distoggleLetter(i);
+    confirmFail(i);
+    i++;
+    continuePlaying(i);
+  }
+}
+
+function confirmCorrect(i) {
+  randomQuestions[i].status = true; // marca pregunta como acertada
+  totalWords--; // disminuye las letras pendientes de jugar
+  answerIsCorrectDom(i)
+  setPoints(); //actualiza puntos por pantalla
+}
+
+function confirmFail(i) {
+  randomQuestions[i].status = false; // marca pregunta como fallida
+  totalWords--; // disminuye las letras pendientes de jugar
+  answerIsWrongDom(i)
+}
+
+$(document).keypress(function(e) {
+  console.log(e.which);
+  if(e.which == 97) { //a
+    correctAnswer();
+  }
+  else if(e.which == 115){ //s
+    failAnswer();
+  }
+  else if(e.which == 112){ //p
+    nextButtonBehavior();
+  }
+})
