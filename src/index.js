@@ -6,6 +6,8 @@ let totalWords = 26;
 let i = 0;
 let seconds = 150;
 let gameIsCancelled = false;
+let gameIsPaused = false;
+let gameIsResumed = false;
 
 
 // función que cambia de pantalla al pulsar el botón de Play Game, para empezar el juego y prepara el juego para jugar, mostrando las preguntas, timer, nombre de usuario.
@@ -92,7 +94,11 @@ function setTimer() {
       seconds = 0;
       clearTimeout(timeoutId);
       cancelGameDom();
-    } else if (seconds <= 0 || totalWords === 0) {
+    }
+    else if (gameIsPaused) {
+      clearTimeout(timeoutId);
+    }
+    else if (seconds <= 0 || totalWords === 0) {
       clearTimeout(timeoutId);
       endGameDom();
       setRanking();
@@ -176,14 +182,21 @@ function confirmFail(i) {
 }
 
 $(document).keypress(function(e) {
-  console.log(e.which);
-  if(e.which == 97) { //a
-    correctAnswer();
+  if (gameIsPaused && e.which == 114){ //r
+    setTimer();
+    gameIsPaused = false;
   }
-  else if(e.which == 115){ //s
-    failAnswer();
-  }
-  else if(e.which == 112){ //p
-    nextButtonBehavior();
+  else if (!gameIsPaused){
+    if(e.which == 97) { //a
+      correctAnswer();
+    }
+    else if(e.which == 115){ //s
+      gameIsPaused = true;
+      failAnswer();
+    }
+    else if(e.which == 100){ //d
+      gameIsPaused = true;
+      nextButtonBehavior();
+    }
   }
 })
