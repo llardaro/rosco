@@ -192,7 +192,8 @@ audio {
 #container-right-cancelGame,
 #container-right-ranking {
   width: 70%;
-  height: 80%;
+  height: 40%;
+  border-radius: 10px;
   background: #8a4949;
   text-align: center;
   background-color: white;
