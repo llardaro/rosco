@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AVF ROSCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <!-- personal heart icon -->
     <link rel="shortcut icon" href="./img/logoavf.ico">
     <!--reset layout with normalize.min.css-->
@@ -18,16 +21,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
-    <div id="pauseDiv" hidden="true" style="position:absolute; top:0;left:0;bottom:0;right:0;height:100%;width:100%; z-index: 9999; background-color: gray; opacity: 70%;">
-      <p style="text-align: center; line-height: 600px;">Pausado</p>
+    <div id="pauseDiv" hidden="true" style="position:absolute; top:0;left:0;bottom:0;right:0;height:100%;width:100%; z-index: 9999; background-color: rgba(41, 41, 41, 0.801);">
+      <p style="text-align: center; line-height: 600px; font-size: 50px; color: black; background-color: rgba(253, 253, 253, 0.404);">JUEGO PAUSADO</p>
     </div>
     <div id="container">
       <div id="container-left">
         <div id="container-left-info">
-          <h1 class="animated zoomIn">AVF ROSCO</h1>
-          <h1></h1>
-          <img id='image-avatar-man' src="./img/www.freepng.es/siluet-man-grey.png">
-          <img id='image-avatar-woman' src="./img/www.freepng.es/siluet-woman-grey.png">
+          <div id="score">0</div>
+          <h1 id="playerName"></h1>
+          <div id="timer">150</div>
         </div>
         <div class="container-left-circle">
           <div id="a" class="circle">A</div>
@@ -57,10 +59,6 @@
           <div id="y" class="circle">Y</div>
           <div id="z" class="circle">Z</div>
         </div>
-        <div id='container-left-counters'>
-          <div id="score">0</div>
-          <div id="timer">150</div>
-        </div>
         <audio class="audio">
           <source type="audio/mp3" src="./sounds/flukeout.github.io/coin.mp3">
         </audio>
@@ -77,19 +75,20 @@
       <div id="container-right">
         <div id="container-right-rules">
           <div>
-            <h1>¡Bienvenidos al Pasapalabra!</h1>
+            <h1>Nuevo rosco AVF</h1>
             <label>
-              ¿Como te llamas?:
+              Nombre del jugador:
               <input type="text" id="name" name="user_name" maxlength="13">
             </label>
             <label>
+              Elegir cuestionario:
               <select id="questionsArray" name="questionsArray">
                 <option value="0">Cuestionario 1</option>
                 <option value="1">Cuestionario 2</option>
                 <option value="2">Cuestionario 3</option>
               </select>
             </label>
-            <button id="play-game-button">Comencemos!</button>
+            <button id="play-game-button">Empezar!</button>
           </div>
         </div>
         <div id="container-right-game">
@@ -102,18 +101,15 @@
           </div>
         </div>
         <div id="container-right-win">
-          <div>
-            <img id="winning-cup" src="./img/www.freepik.com/winning-cup/winning-cup.jpg" alt="winning gold cup">
-          </div>
           <div class="container-right-title">
-          <h1>Congratulations</h1>
+          <h1>JUEGO TERMINADO</h1>
             <h1></h1>
           </div>
           <div>
-            <h2>You guessed <span class="guessed-words"></span> words and failed <span class="failed-words"></span>.</h2>
+            <h2 style="font-size: 5.5rem;"><span class="guessed-words"></span> palabras correctas y <span class="failed-words"></span> fallidas.</h2>
           </div>
           <div>
-            <h2>You scored <span class="final-score"></span> points!</h2>
+            <h2 style="font-size: 5.5rem;">Puntaje: <span class="final-score"></span></h2>
           </div>
         </div>
         <div id="container-right-ranking">
@@ -200,7 +196,6 @@
         </div>
       </div>
     </div>
-    <a id="attribution" href="https://www.123freevectors.com/">Free Vector</a>
   </body>
     <!-- main JavaScript -->
     <script type="text/javascript" src="src/questions-helper.js"></script>

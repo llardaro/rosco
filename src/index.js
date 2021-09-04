@@ -191,7 +191,7 @@ $(document).keypress(function(e) {
     hidePause();
     gameIsPaused = false;
   }
-  else if (!gameIsPaused){
+  else if (!gameIsPaused && i < 26){
     if(e.which == 97) { //a
       correctAnswer();
     }

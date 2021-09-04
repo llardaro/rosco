@@ -16,7 +16,7 @@ const inputName = $('#name')
 const question = $('#question')
 const inputAnswer = $('#answer')
 const inputQuestionsArray = $('#questionsArray')
-const nameShownInDOM = $('h1:nth-child(2)')
+const nameShownInDOM = $('#playerName')
 const circle = $('.circle')
 
 const radioAvatarMan = $('#radio-avatar-man')

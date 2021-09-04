@@ -1,4 +1,8 @@
 @charset "UTF-8";
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 html {
   font-size: calc(6px + 5 * ((100vw - 790px) / 1800));
   width: 100%;
@@ -7,9 +11,10 @@ html {
   min-height: 600px; }
 
 body {
-  background: url("../img/www.freepik.com/background-blue-letters/background-letters.jpg");
+  /* background: url("../img/www.freepik.com/background-blue-letters/background-letters.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #040B18;
   height: 100%; }
 
 /** generales */
@@ -162,20 +167,20 @@ audio {
 
 #timer,
 #score {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
-  background: linear-gradient(#9e7748, #eaaf69);
+  background: linear-gradient(#e6e6e6, #b3b3b3);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
-  color: white;
+  font-size: 8rem;
+  color: black;
   border: 1px solid white; }
 
 #score {
-  width: 6rem;
-  height: 6rem; }
+  width: 14rem;
+  height: 14rem; }
 
 #score,
 #timer,
@@ -191,22 +196,20 @@ audio {
 #container-right-win,
 #container-right-cancelGame,
 #container-right-ranking {
-  width: 70%;
-  height: 40%;
+  width: 95%;
+  height: auto!important;
   border-radius: 10px;
   background: #8a4949;
   text-align: center;
   background-color: white;
-  color: #464444; }
+  color: #464444;
+}
 
 #container-right-game {
   display: none;
   height: 20%;
-  border: 1rem solid #fac35f;
+  border: 1rem solid #053df5;
   padding: 2rem;
-  border-radius: 0px 120px 0px 120px;
-  -moz-border-radius: 35px 0px 35px 0px;
-  -webkit-border-radius: 0px 120px 0px 120px;
   flex-wrap: wrap; }
 
 #container-right-rules > div {
@@ -233,7 +236,7 @@ audio {
   justify-content: center; }
 
 #container-right-game-questions {
-  height: 60%;
+  /* height: 60%; */
   margin-right: 3rem; }
 
 #container-right-game-buttons {
@@ -247,7 +250,7 @@ audio {
 #play-game-button,
 .play-again-button,
 #ranking-button {
-  background-color: #eaaf69;
+  background-color: #242424;
   padding: 1rem; }
 
 #submit-button {
@@ -281,7 +284,7 @@ audio {
 
 .container-right-title > h1 {
   font-size: 4rem;
-  color: #ff0000a6; }
+  color: #2c2c2ca6; }
 
 /** ranking */
 #container-right-ranking > h1 {
@@ -306,3 +309,7 @@ audio {
   #container-right-rules {
     height: 90%;
     width: 80%; } }
+
+#question {
+  font-size: 4.8rem;
+}
