@@ -18,6 +18,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
+    <div id="pauseDiv" hidden="true" style="position:absolute; top:0;left:0;bottom:0;right:0;height:100%;width:100%; z-index: 9999; background-color: gray; opacity: 70%;">
+      <p style="text-align: center; line-height: 600px;">Pausado</p>
+    </div>
     <div id="container">
       <div id="container-left">
         <div id="container-left-info">
@@ -79,11 +82,12 @@
               ¿Como te llamas?:
               <input type="text" id="name" name="user_name" maxlength="13">
             </label>
-            <label id='avatar'>
-              <input type="radio" id="radio-avatar-man" name="avatar" checked>
-              <label for="man">Hombre</label>
-              <input type="radio" id="radio-avatar-woman" name="avatar">
-              <label for="woman">Mujer</label>
+            <label>
+              <select id="questionsArray" name="questionsArray">
+                <option value="0">Cuestionario 1</option>
+                <option value="1">Cuestionario 2</option>
+                <option value="2">Cuestionario 3</option>
+              </select>
             </label>
             <button id="play-game-button">Comencemos!</button>
           </div>
@@ -110,10 +114,6 @@
           </div>
           <div>
             <h2>You scored <span class="final-score"></span> points!</h2>
-          </div>
-          <div>
-            <button class="play-again-button">Play Again</button>
-            <button id="ranking-button">Ranking</button>
           </div>
         </div>
         <div id="container-right-ranking">

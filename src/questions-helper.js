@@ -86,14 +86,14 @@ var questions3 = [
 let randomQuestions = [];
 
 // funciones que eligen una definición entre tres colecciones diferentes y guarda los resultados en un array
-function getRandomArray(i) {
+function getRandomArray(i, questions_selected) {
   let allQuestions = [questions, questions2, questions3];
   let index = Math.floor(Math.random() * 3);
-  return allQuestions[index][i];
+  return allQuestions[questions_selected][i];
 }
 
-function setRandomArray() {
+function setRandomArray(questions_selected) {
   for(let i = 0; i < 26; i++) {
-    randomQuestions.push(getRandomArray(i));
+    randomQuestions.push(getRandomArray(i, questions_selected));
   }
 }

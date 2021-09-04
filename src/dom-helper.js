@@ -6,6 +6,8 @@ const containerGame = $('#container-right-game')
 const containerRules = $('#container-right-rules')
 const containerRanking = $('#container-right-ranking')
 
+const pauseDiv = $('#pauseDiv')
+
 const generalDiv = $('div')
 const generalInput = $('input')
 const generalButton = $('button')
@@ -13,6 +15,7 @@ const generalButton = $('button')
 const inputName = $('#name')
 const question = $('#question')
 const inputAnswer = $('#answer')
+const inputQuestionsArray = $('#questionsArray')
 const nameShownInDOM = $('h1:nth-child(2)')
 const circle = $('.circle')
 
@@ -57,13 +60,6 @@ function setUserName() {
   }
   name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   nameShownInDOM.text(name);
-}
-
-
-// función que muestra por pantalla, un avatar de hombre o de mujer, dependiendo de la selección del usuario.
-function setAvatar() {
-  radioAvatarMan.prop( "checked" ) ? imageAvatarMan.show()
-                                   : imageAvatarWoman.show();
 }
 
 // funciones que cambian el comportamiento visual dependiendo de si la respuesta es correcta o incorrecta
@@ -118,6 +114,13 @@ function continuePlayingDom(i) {
   showQuestion(i);
 }
 
+function showPause(){
+  pauseDiv.removeAttr('hidden');
+}
+
+function hidePause(){
+  pauseDiv.attr('hidden', 'true');
+}
 
 // funciones que cambian el aspecto visual del juego en diferentes situaciones (al iniciar el juego, al volver a jugar, al ganar, al cancelar, etc)
 function startGameDom() {
@@ -185,6 +188,10 @@ function showRankingDom() {
 // función que recoge la respuesta introducida por el usuario en el DOM.
 function getInputAnswerDom() {
   return inputAnswer.val()
+}
+
+function getInputQuestionsArrayDom() {
+  return inputQuestionsArray.val()
 }
 
 

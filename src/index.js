@@ -8,15 +8,16 @@ let seconds = 150;
 let gameIsCancelled = false;
 let gameIsPaused = false;
 let gameIsResumed = false;
+let gameStarted = false;
 
 
 // función que cambia de pantalla al pulsar el botón de Play Game, para empezar el juego y prepara el juego para jugar, mostrando las preguntas, timer, nombre de usuario.
 function startGame() {
+  gameStarted = true;
   startGameDom()
   setUserName();
-  setAvatar();
   setTimer();
-  setRandomArray();
+  setRandomArray(getInputQuestionsArrayDom()); //0, 1 o 2
   showQuestion(i);
 }
 
@@ -182,8 +183,12 @@ function confirmFail(i) {
 }
 
 $(document).keypress(function(e) {
+  if (!gameStarted)
+    return 0
+
   if (gameIsPaused && e.which == 114){ //r
     setTimer();
+    hidePause();
     gameIsPaused = false;
   }
   else if (!gameIsPaused){
@@ -191,11 +196,15 @@ $(document).keypress(function(e) {
       correctAnswer();
     }
     else if(e.which == 115){ //s
-      gameIsPaused = true;
+      if (i < 25){
+        gameIsPaused = true;
+        showPause();
+      }
       failAnswer();
     }
     else if(e.which == 100){ //d
       gameIsPaused = true;
+      showPause();
       nextButtonBehavior();
     }
   }
